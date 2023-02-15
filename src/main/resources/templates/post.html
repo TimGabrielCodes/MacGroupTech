@@ -9,9 +9,11 @@
 <body>
 <div class="container">
   <h1>MacGroup Tech Blog</h1>
+  <a th:href="@{'/'}">Go home</a>
 
     <div class="post" >
       <h2 th:text="${post.title}">Title</h2>
+      <h5 th:text="'Written by ' + ${post.account.getFirstName()}">Account First Name</h5>
       <h5 th:text="'Created on ' + ${post.createdAt} "> Created At</h5>
       <p th:text="${post.body}">Body Text</p>
       <br/>
