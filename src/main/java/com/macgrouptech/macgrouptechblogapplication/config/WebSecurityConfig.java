@@ -29,20 +29,19 @@ public class WebSecurityConfig {
 
         http
                 .formLogin()
-                        .loginPage("/login")
-                                .loginProcessingUrl("/login")
-                                        .usernameParameter("email")
-                                                .passwordParameter("password")
-                                                        .defaultSuccessUrl("/", true)
-                                                                .failureUrl("/login?error")
-                                                                        .permitAll()
-                                                                                .and()
-                                                                                        .logout()
-                                                                                                .logoutUrl("/logout")
-                                                                                                        .logoutSuccessUrl("/login?logout")
-                                                                                                                .and()
-                                                                                                                        .httpBasic();
-
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/", true)
+                .failureUrl("/login?error")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .and()
+                .httpBasic();
         //TODO: Remove these when I move away from h2 console
         http.csrf().disable();
         http.headers().frameOptions().disable();
